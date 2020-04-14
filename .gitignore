@@ -3,3 +3,16 @@
 ################################################################################
 
 /packages
+/Bayer.MyBayer.WebApi.Test/bin
+/Bayer.MyBayer.WebApi.Test/obj
+/Bayer.MyBayer.WebApi/bin
+/Bayer.MyBayer.WebApi/logs/IGrower.log.2019-10-16.0
+/Bayer.MyBayer.WebApi/logs/IGrower.log.2019-08-14.0
+/Bayer.MyBayer.WebApi/logs/IGrower.log.2019-08-12.0
+/Bayer.MyBayer.WebApi/logs/IGrower.log.2019-08-09.0
+/Bayer.MyBayer.WebApi/logs/IGrower.log.2019-05-22.0
+/Bayer.MyBayer.WebApi/obj
+/Bayer.MyBayer.WebApi/Properties/PublishProfiles
+/Bayer.MyBayer.CDIPData/bin
+/Bayer.MyBayer.CDIPData/obj
+/.vs/Bayer.MyBayer.WebApi
