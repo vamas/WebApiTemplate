@@ -83,11 +83,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Bayer.MyBayer.CDIPData\Bayer.MyBayer.CDIPData.csproj">
+    <ProjectReference Include="..\Web.Data\Web.Data.csproj">
       <Project>{c6bc327e-a8fb-42f5-8e5c-c14ef3bc6436}</Project>
-      <Name>Bayer.MyBayer.CDIPData</Name>
+      <Name>Bayer.MyBayer.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Bayer.MyBayer.WebApi\Bayer.MyBayer.WebApi.csproj">
+    <ProjectReference Include="..\Web.WebApi\Web.WebApi.csproj">
       <Project>{099b3448-b8f8-4ec3-aa1d-2a56b74a75a9}</Project>
       <Name>Bayer.MyBayer.WebApi</Name>
     </ProjectReference>

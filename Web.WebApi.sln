@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bayer.MyBayer.WebApi", "Bayer.MyBayer.WebApi\Bayer.MyBayer.WebApi.csproj", "{099B3448-B8F8-4EC3-AA1D-2A56B74A75A9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.WebApi", "Web.WebApi\Web.WebApi.csproj", "{099B3448-B8F8-4EC3-AA1D-2A56B74A75A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bayer.MyBayer.WebApi.Test", "Bayer.MyBayer.WebApi.Test\Bayer.MyBayer.WebApi.Test.csproj", "{D3F3E020-DA19-4B27-A4C4-21DDB884463D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.WebApi.Test", "Web.WebApi.Test\Web.WebApi.Test.csproj", "{D3F3E020-DA19-4B27-A4C4-21DDB884463D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bayer.MyBayer.CDIPData", "Bayer.MyBayer.CDIPData\Bayer.MyBayer.CDIPData.csproj", "{C6BC327E-A8FB-42F5-8E5C-C14EF3BC6436}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Data", "Web.Data\Web.Data.csproj", "{C6BC327E-A8FB-42F5-8E5C-C14EF3BC6436}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
