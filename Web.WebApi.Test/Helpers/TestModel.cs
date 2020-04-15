@@ -1,11 +1,11 @@
-﻿using Bayer.MyBayer.WebApi.BusinessLogic.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Web.Infrastructure.BusinessLogic.Model;
 
-namespace Bayer.MyBayer.WebApi.Test.Helpers
+namespace Web.WebApi.Test.Helpers
 {
     public class TestModel : BusinessLogicEntity
     {

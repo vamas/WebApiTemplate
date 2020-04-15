@@ -12,7 +12,7 @@ using Bayer.MyBayer.WebApi.BusinessLogic.DataInterfaces;
 using Bayer.MyBayer.CDIPData;
 using System.Threading.Tasks;
 
-namespace Bayer.MyBayer.WebApi.Test
+namespace Web.WebApi.Test
 {
     [TestClass]
     public class TestGrowerConsentService

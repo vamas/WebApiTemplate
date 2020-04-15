@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 
 namespace Bayer.MyBayer.CDIPData
 {
-    public class CdipData : ConsentData
+    public class DataRepository : ConsentData
     {
         private static Hashtable _consents = new Hashtable();
         private static Hashtable _cropAcres = new Hashtable();
         private static Hashtable _consentStatuses = new Hashtable();
 
-        public CdipData()
+        public DataRepository()
         {
         }
 

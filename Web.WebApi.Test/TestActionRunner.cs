@@ -1,34 +1,31 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Bayer.MyBayer.WebApi.Models;
 using System.Collections.Generic;
-using Bayer.MyBayer.WebApi.Controllers;
-using Bayer.MyBayer.WebApi.Services.Definitions;
-using Bayer.MyBayer.WebApi.Services;
-using Bayer.MyBayer.WebApi.DAL;
 using System.Web.Http;
 using System.Web.Http.Results;
-using Bayer.MyBayer.WebApi.BusinessLogic.DataInterfaces;
-using Bayer.MyBayer.CDIPData;
 using System.Threading.Tasks;
-using Bayer.MyBayer.WebApi.BusinessLogic.Model;
-using Bayer.MyBayer.WebApi.BusinessLogic.ActionRunner;
-using Bayer.MyBayer.WebApi.Test.Helpers;
+using Web.ProductManager.Interface;
+using Web.ProductManager.Data;
+using Web.Services;
+using Web.Services.Interface;
+using Web.Infrastructure.ActionRunner;
+using Web.Infrastructure.BusinessLogic.Model;
+using Web.WebApi.Test.Helpers;
+using Web.Infrastructure.ActionRunner.Exceptions;
 
-namespace Bayer.MyBayer.WebApi.Test
+namespace Web.WebApi.Test
 {
     [TestClass]
     public class TestActionRunner
     {
-        private static IGrowerConsentService service;
-        private static IConfirmationTokenService confirmationTokenService;
-        private static ConsentData consentData;        
+        private static IProductManagerData data;
+        private static IProductManagementService service;
 
         [ClassInitialize]
         public static void TestInitialize(TestContext context)
         {
-            consentData = new CdipData();
-            service = new GrowerConsentService(consentData, null);
+            data = new ProductManagerData();
+            service = new ProductManagementService(data);
         }             
 
         [TestMethod]
@@ -41,7 +38,7 @@ namespace Bayer.MyBayer.WebApi.Test
                 is_unrecoverable = false
             };
             Runner<BusinessLogicEntity, BusinessLogicEntity> runner = new
-                Runner<BusinessLogicEntity, BusinessLogicEntity>(consentData);
+                Runner<BusinessLogicEntity, BusinessLogicEntity>(data);
             runner.AddRunnerAction(new TestAction(), model, null, null);
             var result = await runner.RunActionQueueAsync();
             Assert.IsFalse(runner.HasErrors);
@@ -58,7 +55,7 @@ namespace Bayer.MyBayer.WebApi.Test
                 is_unrecoverable = false
             };
             Runner<BusinessLogicEntity, BusinessLogicEntity> runner = new
-                Runner<BusinessLogicEntity, BusinessLogicEntity>(consentData);
+                Runner<BusinessLogicEntity, BusinessLogicEntity>(data);
             runner.AddRunnerAction(new TestAction(), model, null, null);
             var result = await runner.RunActionQueueAsync();
             Assert.IsTrue(runner.HasErrors);
@@ -75,7 +72,7 @@ namespace Bayer.MyBayer.WebApi.Test
                 is_unrecoverable = false
             };
             Runner<BusinessLogicEntity, BusinessLogicEntity> runner = new
-                Runner<BusinessLogicEntity, BusinessLogicEntity>(consentData);
+                Runner<BusinessLogicEntity, BusinessLogicEntity>(data);
             runner.AddRunnerAction(new TestAction(), model, null, null);
             runner.AddRunnerAction(new TestAction(), model, new TestRollbackAction(), model);
             runner.AddRunnerAction(new TestAction(), model, new TestRollbackAction(), model);
@@ -100,7 +97,7 @@ namespace Bayer.MyBayer.WebApi.Test
                 is_unrecoverable = false
             };
             Runner<BusinessLogicEntity, BusinessLogicEntity> runner = new
-                Runner<BusinessLogicEntity, BusinessLogicEntity>(consentData);
+                Runner<BusinessLogicEntity, BusinessLogicEntity>(data);
             runner.AddRunnerAction(new TestAction(), model, null, null);
             runner.AddRunnerAction(new TestAction(), model, new TestRollbackAction(), model);
             runner.AddRunnerAction(new TestAction(), model1, new TestRollbackAction(), model);
@@ -127,7 +124,7 @@ namespace Bayer.MyBayer.WebApi.Test
                 is_unrecoverable = true
             };
             Runner<BusinessLogicEntity, BusinessLogicEntity> runner = new
-                Runner<BusinessLogicEntity, BusinessLogicEntity>(consentData);
+                Runner<BusinessLogicEntity, BusinessLogicEntity>(data);
             runner.AddRunnerAction(new TestAction(), model, null, null);
             runner.AddRunnerAction(new TestAction(), model, new TestRollbackAction(), model1);
             runner.AddRunnerAction(new TestAction(), model1, new TestRollbackAction(), model1);

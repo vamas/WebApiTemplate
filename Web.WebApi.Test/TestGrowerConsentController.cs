@@ -9,7 +9,7 @@ using Bayer.MyBayer.WebApi.DAL;
 using System.Web.Http;
 using System.Web.Http.Results;
 
-namespace Bayer.MyBayer.WebApi.Test
+namespace Web.WebApi.Test
 {
     [TestClass]
     public class TestGrowerConsentController
