@@ -1,8 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
-using System.Web.Http;
-using System.Web.Http.Results;
 using System.Threading.Tasks;
 using Web.ProductManager.Interface;
 using Web.ProductManager.Data;
