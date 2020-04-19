@@ -3,17 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.WebApi.Test", "Web.WebApi.Test\Web.WebApi.Test.csproj", "{D3F3E020-DA19-4B27-A4C4-21DDB884463D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.WebApi.Test", "Web.WebApi.Test\Web.WebApi.Test.csproj", "{D3F3E020-DA19-4B27-A4C4-21DDB884463D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.ProductManager.Data", "Web.Data\Web.ProductManager.Data.csproj", "{C6BC327E-A8FB-42F5-8E5C-C14EF3BC6436}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.ProductManager.Data", "Web.Data\Web.ProductManager.Data.csproj", "{C6BC327E-A8FB-42F5-8E5C-C14EF3BC6436}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Infrastructure", "Web.Infrastructure\Web.Infrastructure.csproj", "{19AAC281-6C4D-49B1-8E67-8C35163A9A17}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.Infrastructure", "Web.Infrastructure\Web.Infrastructure.csproj", "{19AAC281-6C4D-49B1-8E67-8C35163A9A17}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.ProductManager", "Web.BusinessLogic\Web.ProductManager.csproj", "{9A347CFD-B0C4-4FBC-BFF5-F13F3CA545F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.ProductManager", "Web.BusinessLogic\Web.ProductManager.csproj", "{9A347CFD-B0C4-4FBC-BFF5-F13F3CA545F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Services", "Web.Services\Web.Services.csproj", "{80EA9E86-C56F-4130-AAF0-860C12307C89}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.Services", "Web.Services\Web.Services.csproj", "{80EA9E86-C56F-4130-AAF0-860C12307C89}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.Api", "Web.Api\Web.Api.csproj", "{07AAE8F5-6EE6-47A2-A377-1EBEBF1541EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Api.Dto", "Web.Api.Dto\Web.Api.Dto.csproj", "{D37C8244-5007-4E60-9B66-0EF8DDBBEAD2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -58,6 +60,12 @@ Global
 		{07AAE8F5-6EE6-47A2-A377-1EBEBF1541EC}.QA|Any CPU.Build.0 = Debug|Any CPU
 		{07AAE8F5-6EE6-47A2-A377-1EBEBF1541EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07AAE8F5-6EE6-47A2-A377-1EBEBF1541EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D37C8244-5007-4E60-9B66-0EF8DDBBEAD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D37C8244-5007-4E60-9B66-0EF8DDBBEAD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D37C8244-5007-4E60-9B66-0EF8DDBBEAD2}.QA|Any CPU.ActiveCfg = Debug|Any CPU
+		{D37C8244-5007-4E60-9B66-0EF8DDBBEAD2}.QA|Any CPU.Build.0 = Debug|Any CPU
+		{D37C8244-5007-4E60-9B66-0EF8DDBBEAD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D37C8244-5007-4E60-9B66-0EF8DDBBEAD2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

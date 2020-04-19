@@ -14,9 +14,15 @@ namespace Web.Services.Interface
         Task<Product> CreateProduct(Product product);
         Task DeleteBrand(Brand brand);
         Task DeleteProduct(Product product);
+        Task<Brand> UpdateBrand(string id, Brand brand);
+        Task<Product> UpdateProduct(string id, Product product);
         Task<Brand> GetBrand(string id);
         Task<Product> GetProduct(string id);
         Task<IEnumerable<Brand>> FindBrands(Filter filter);
-        Task<IEnumerable<Product>> FindProduct(Filter filter);
+        Task<IEnumerable<Product>> FindProducts(Filter filter);
+        int GetTotalProducts();
+        int GetTotalBrands();
+        bool HasErrors();
+        string ServiceErrorMessage();
     }
 }

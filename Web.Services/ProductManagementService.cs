@@ -65,5 +65,40 @@ namespace Web.Services
         {
             throw new NotImplementedException();
         }
+
+        public Task<Brand> UpdateBrand(string id, Brand brand)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Product> UpdateProduct(string id, Product product)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<Product>> FindProducts(Filter filter)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int GetTotalProducts()
+        {
+            throw new NotImplementedException();
+        }
+
+        public int GetTotalBrands()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool HasErrors()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string ServiceErrorMessage()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
