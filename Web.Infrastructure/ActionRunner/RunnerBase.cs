@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
+using Web.Infrastructure.ActionQueue;
 using Web.Infrastructure.ActionRunner.Interface;
 using Web.Infrastructure.BusinessLogic.Interface;
 using Web.Infrastructure.BusinessLogic.Model;
@@ -15,7 +16,8 @@ namespace Web.Infrastructure.ActionRunner
         where TIn: BusinessLogicEntity
         where TOut: BusinessLogicEntity
     {
-        private IList<RunnerActionEntry<TIn, TOut>> _actionQueue;
+        //private IList<ActionQueueEntry<TIn, TOut>> _actionQueue;
+        private ActionQueue.ActionQueue<TIn, TOut> _actionQueue;
         private readonly IBusinessLogicData _repo;
 
         public IImmutableList<ValidationResult> Errors
@@ -44,7 +46,7 @@ namespace Web.Infrastructure.ActionRunner
                 if (_actionQueue.Count != 0)
                 {
                     IList<ValidationResult> errors = new List<ValidationResult>();
-                    foreach (var rollbackRunnerAction in _actionQueue.Where(x => x.rollbackExecStatus == ActionExecStatus.Queued))
+                    foreach (var rollbackRunnerAction in _actionQueue.Where(x => x.rollbackExecStatus == ActionExecStatus.Pending))
                     {
                         if(rollbackRunnerAction.rollbackActionClass != null)
                             errors = errors.Concat(rollbackRunnerAction.rollbackActionClass.Errors).ToList();
@@ -57,10 +59,12 @@ namespace Web.Infrastructure.ActionRunner
         }
         public bool HasRollbackErrors => (RollbackErrors.Count == 0) ? false : true;
 
+        public bool ActionQueueIsEmpty => !_actionQueue.Any();
+
         public RunnerBase(IBusinessLogicData repo)
         {
             _repo = repo;
-            _actionQueue = new List<RunnerActionEntry<TIn, TOut>>();
+            _actionQueue = new ActionQueue.ActionQueue<TIn, TOut>();
         }
 
         public void AddRunnerAction(
@@ -68,11 +72,11 @@ namespace Web.Infrastructure.ActionRunner
             BusinessAction<TIn, TOut> rollbackActionClass, TIn rollbackDataIn
             )
         {
-            _actionQueue.Add(new RunnerActionEntry<TIn, TOut>
+            _actionQueue.Add(new ActionQueueEntry<TIn, TOut>
             {
                 actionClass = actionClass,
                 dataIn = dataIn,
-                execStatus = ActionExecStatus.Queued,
+                execStatus = ActionExecStatus.Pending,
                 rollbackActionClass = rollbackActionClass,
                 rollbackDataIn = rollbackDataIn,
                 rollbackExecStatus = ActionExecStatus.NoAction
@@ -80,30 +84,8 @@ namespace Web.Infrastructure.ActionRunner
         }
         public abstract Task<IList<TOut>> RunActionQueueAsync();
         public abstract Task RollbackActionQueueAsync();
-
-        internal IList<RunnerActionEntry<TIn, TOut>> ActionQueue => _actionQueue;
+        
+        internal ActionQueue.ActionQueue<TIn, TOut> RunnerActionQueue => _actionQueue;
         internal IBusinessLogicData Repo => _repo;
-    }
-
-
-    public class RunnerActionEntry<TIn, TOut>
-        where TIn: BusinessLogicEntity
-        where TOut: BusinessLogicEntity
-    {
-        public BusinessAction<TIn, TOut> actionClass { get; set; }
-        public TIn dataIn { get; set; }
-        public ActionExecStatus execStatus { get; set; }
-        public BusinessAction<TIn, TOut> rollbackActionClass { get; set; }
-        public TIn rollbackDataIn { get; set; }
-        public ActionExecStatus rollbackExecStatus { get; set; }
-    }
-
-    public enum ActionExecStatus
-    {
-        NoAction=0,
-        Queued=1,
-        Success=2,
-        Error=3,
-        Recovered=4
     }
 }
