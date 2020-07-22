@@ -49,7 +49,7 @@ namespace Web.Infrastructure.ActionRunner
                     result.Add(await runnerActionEntry.rollbackActionClass.Action(runnerActionEntry.rollbackDataIn));
                     if (HasRollbackErrors)
                     {
-                        throw new RunnerException("Unrecoverable action runner error encountered. Manual cleanup on CDIP backend is required");
+                        throw new RunnerException("Unrecoverable action runner error encountered. Manual cleanup is required");
                     }
                     runnerActionEntry.execStatus = ActionExecStatus.Recovered;
                 }

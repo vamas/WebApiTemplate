@@ -20,7 +20,11 @@ namespace Web.Infrastructure.ActionQueue
             actionQueue = new List<ActionQueueEntry<TIn, TOut>>();
         }
 
-        public ActionQueueEntry<TIn, TOut> this[int index] { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public ActionQueueEntry<TIn, TOut> this[int index] 
+        { 
+            get => actionQueue[index];
+            set { actionQueue[index] = value; } 
+        }
 
         public int Count => actionQueue.Count;
 
@@ -52,7 +56,7 @@ namespace Web.Infrastructure.ActionQueue
 
         public IEnumerator<ActionQueueEntry<TIn, TOut>> GetEnumerator()
         {
-            return actionQueue.GetEnumerator();
+            return GetEnumerator();
         }
 
         public int IndexOf(ActionQueueEntry<TIn, TOut> item)
@@ -77,7 +81,7 @@ namespace Web.Infrastructure.ActionQueue
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return actionQueue.GetEnumerator();
         }
     }
 }
